@@ -13,7 +13,7 @@
 #include <sstream>
 #include <fstream>
 
-#include<cutils/log.h>
+//#include<cutils/log.h>
 
 using namespace std;
 
@@ -23,7 +23,7 @@ bool printProfilingInfo(cl_event event)
     if (!checkSuccess(clGetEventProfilingInfo(event, CL_PROFILING_COMMAND_QUEUED, sizeof(cl_ulong), &queuedTime, NULL)))
     {
         cerr << "Retrieving CL_PROFILING_COMMAND_QUEUED OpenCL profiling information failed. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Retrieving CL_PROFILING_COMMAND_QUEUED OpenCL profiling information failed. \n");
+		//ALOGE("ARM OpenCL SDK: Retrieving CL_PROFILING_COMMAND_QUEUED OpenCL profiling information failed. \n");
         return false;
     }
 
@@ -31,7 +31,7 @@ bool printProfilingInfo(cl_event event)
     if (!checkSuccess(clGetEventProfilingInfo(event, CL_PROFILING_COMMAND_SUBMIT, sizeof(cl_ulong), &submittedTime, NULL)))
     {
         cerr << "Retrieving CL_PROFILING_COMMAND_SUBMIT OpenCL profiling information failed. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Retrieving CL_PROFILING_COMMAND_SUBMIT OpenCL profiling information failed. \n");
+		//ALOGE("ARM OpenCL SDK: Retrieving CL_PROFILING_COMMAND_SUBMIT OpenCL profiling information failed. \n");
         return false;
     }
 
@@ -39,7 +39,7 @@ bool printProfilingInfo(cl_event event)
     if (!checkSuccess(clGetEventProfilingInfo(event, CL_PROFILING_COMMAND_START, sizeof(cl_ulong), &startTime, NULL)))
     {
         cerr << "Retrieving CL_PROFILING_COMMAND_START OpenCL profiling information failed. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Retrieving CL_PROFILING_COMMAND_START OpenCL profiling information failed. \n");
+		//ALOGE("ARM OpenCL SDK: Retrieving CL_PROFILING_COMMAND_START OpenCL profiling information failed. \n");
         return false;
     }
 
@@ -47,19 +47,19 @@ bool printProfilingInfo(cl_event event)
     if (!checkSuccess(clGetEventProfilingInfo(event, CL_PROFILING_COMMAND_END, sizeof(cl_ulong), &endTime, NULL)))
     {
         cerr << "Retrieving CL_PROFILING_COMMAND_END OpenCL profiling information failed. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Retrieving CL_PROFILING_COMMAND_END OpenCL profiling information failed. \n");
+		//ALOGE("ARM OpenCL SDK: Retrieving CL_PROFILING_COMMAND_END OpenCL profiling information failed. \n");
         return false;
     }
 
     cout << "Profiling information:\n";
-	ALOGE("ARM OpenCL SDK: Profiling information: \n");
+	//ALOGE("ARM OpenCL SDK: Profiling information: \n");
     /* OpenCL returns times in nano seconds. Print out the times in milliseconds (divide by a million). */
     cout << "Queued time: \t" << (submittedTime - queuedTime) / 1000000.0 << "ms\n";
-	ALOGE("ARM OpenCL SDK: Queued time: \t %lu ms \n", (submittedTime - queuedTime) / 1000000.0);
+	//ALOGE("ARM OpenCL SDK: Queued time: \t %lu ms \n", (submittedTime - queuedTime) / 1000000.0);
     cout << "Wait time: \t" << (startTime - submittedTime) / 1000000.0 << "ms\n";
-	ALOGE("ARM OpenCL SDK: Wait time: \t %lu ms \n", (startTime - submittedTime) / 1000000.0);
+	//ALOGE("ARM OpenCL SDK: Wait time: \t %lu ms \n", (startTime - submittedTime) / 1000000.0);
     cout << "Run time: \t" << (endTime - startTime) / 1000000.0 << "ms" << endl;
-	ALOGE("ARM OpenCL SDK: Run time: \t %lu ms \n", (endTime - startTime)  / 1000000.0);
+	//ALOGE("ARM OpenCL SDK: Run time: \t %lu ms \n", (endTime - startTime)  / 1000000.0);
 
     return true;
 }
@@ -185,7 +185,7 @@ bool cleanUpOpenCL(cl_context context, cl_command_queue commandQueue, cl_program
         if (!checkSuccess(clReleaseContext(context)))
         {
             cerr << "Releasing the OpenCL context failed. " << __FILE__ << ":"<< __LINE__ << endl;
-			ALOGE("ARM OpenCL SDK: Releasing the OpenCL context failed. \n");
+			//ALOGE("ARM OpenCL SDK: Releasing the OpenCL context failed. \n");
             returnValue = false;
         }
     }
@@ -195,7 +195,7 @@ bool cleanUpOpenCL(cl_context context, cl_command_queue commandQueue, cl_program
         if (!checkSuccess(clReleaseCommandQueue(commandQueue)))
         {
             cerr << "Releasing the OpenCL command queue failed. " << __FILE__ << ":"<< __LINE__ << endl;
-			ALOGE("ARM OpenCL SDK: Releasing the OpenCL command queue failed. \n");
+			//ALOGE("ARM OpenCL SDK: Releasing the OpenCL command queue failed. \n");
             returnValue = false;
         }
     }
@@ -205,7 +205,7 @@ bool cleanUpOpenCL(cl_context context, cl_command_queue commandQueue, cl_program
         if (!checkSuccess(clReleaseKernel(kernel)))
         {
             cerr << "Releasing the OpenCL kernel failed. " << __FILE__ << ":"<< __LINE__ << endl;
-			ALOGE("ARM OpenCL SDK: Releasing the OpenCL kernel failed. \n");
+			//ALOGE("ARM OpenCL SDK: Releasing the OpenCL kernel failed. \n");
             returnValue = false;
         }
     }
@@ -215,7 +215,7 @@ bool cleanUpOpenCL(cl_context context, cl_command_queue commandQueue, cl_program
         if (!checkSuccess(clReleaseProgram(program)))
         {
             cerr << "Releasing the OpenCL program failed. " << __FILE__ << ":"<< __LINE__ << endl;
-			ALOGE("ARM OpenCL SDK: Releasing the OpenCL program failed. \n");
+			//ALOGE("ARM OpenCL SDK: Releasing the OpenCL program failed. \n");
             returnValue = false;
         }
     }
@@ -227,7 +227,7 @@ bool cleanUpOpenCL(cl_context context, cl_command_queue commandQueue, cl_program
             if (!checkSuccess(clReleaseMemObject(memoryObjects[index])))
             {
                 cerr << "Releasing the OpenCL memory object " << index << " failed. " << __FILE__ << ":"<< __LINE__ << endl;
-				ALOGE("ARM OpenCL SDK: Releasing the OpenCL memory failed. \n");
+				//ALOGE("ARM OpenCL SDK: Releasing the OpenCL memory failed. \n");
                 returnValue = false;
             }
         }
@@ -246,14 +246,14 @@ bool createContext(cl_context* context)
     if (!checkSuccess(clGetPlatformIDs(1, &firstPlatformID, &numberOfPlatforms)))
     {
         cerr << "Retrieving OpenCL platforms failed. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Retrieving OpenCL platforms failed. \n");
+		//ALOGE("ARM OpenCL SDK: Retrieving OpenCL platforms failed. \n");
         return false;
     }
 
     if (numberOfPlatforms <= 0)
     {
         cerr << "No OpenCL platforms found. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: No OpenCL platforms found. \n");
+		//ALOGE("ARM OpenCL SDK: No OpenCL platforms found. \n");
         return false;
     }
 
@@ -263,7 +263,7 @@ bool createContext(cl_context* context)
     if (!checkSuccess(errorNumber))
     {
         cerr << "Creating an OpenCL context failed. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Creating an OpenCL context failed. \n");
+		//ALOGE("ARM OpenCL SDK: Creating an OpenCL context failed. \n");
         return false;
     }
 
@@ -280,14 +280,14 @@ bool createCommandQueue(cl_context context, cl_command_queue* commandQueue, cl_d
     if (!checkSuccess(clGetContextInfo(context, CL_CONTEXT_DEVICES, 0, NULL, &deviceBufferSize)))
     {
         cerr << "Failed to get OpenCL context information. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Failed to get OpenCL context information. \n");
+		//ALOGE("ARM OpenCL SDK: Failed to get OpenCL context information. \n");
         return false;
     }
 
     if(deviceBufferSize == 0)
     {
         cerr << "No OpenCL devices found. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: No OpenCL devices found. \n");
+		//ALOGE("ARM OpenCL SDK: No OpenCL devices found. \n");
         return false;
     }
 
@@ -296,7 +296,7 @@ bool createCommandQueue(cl_context context, cl_command_queue* commandQueue, cl_d
     if (!checkSuccess(clGetContextInfo(context, CL_CONTEXT_DEVICES, deviceBufferSize, devices, NULL)))
     {
         cerr << "Failed to get the OpenCL context information. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Failed to get the OpenCL context information. \n");
+		//ALOGE("ARM OpenCL SDK: Failed to get the OpenCL context information. \n");
         delete [] devices;
         return false;
     }
@@ -310,7 +310,7 @@ bool createCommandQueue(cl_context context, cl_command_queue* commandQueue, cl_d
     if (!checkSuccess(errorNumber))
     {
         cerr << "Failed to create the OpenCL command queue. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Failed to create the OpenCL command queue. \n");
+		//ALOGE("ARM OpenCL SDK: Failed to create the OpenCL command queue. \n");
         return false;
     }
 
@@ -377,12 +377,12 @@ bool createProgram(cl_context context, cl_device_id device, string filename, cl_
     return true;
 }
 
-inline bool checkSuccess(cl_int errorNumber)
+ bool checkSuccess(cl_int errorNumber)
 {
     if (errorNumber != CL_SUCCESS)
     {
         cerr << "OpenCL error: " << errorNumberToString(errorNumber) << endl;
-		ALOGE("ARM OpenCL SDK: OpenCL error:errorNumber  \t %d  \n", errorNumber);
+		//ALOGE("ARM OpenCL SDK: OpenCL error:errorNumber  \t %d  \n", errorNumber);
 		
         return false;
     }

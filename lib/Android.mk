@@ -7,8 +7,7 @@ LOCAL_C_INCLUDES += \
 LOCAL_SRC_FILES:= \
 	opencl_stubs.c
 
-LOCAL_SHARED_LIBRARIES := \
-	libcutils 
+LOCAL_SHARED_LIBRARIES :=  
 
 LOCAL_CFLAGS += -fPIC
 LOCAL_CFLAGS += -Wno-error=return-type

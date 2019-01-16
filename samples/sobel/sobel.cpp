@@ -18,7 +18,7 @@
 #include <cstddef>
 #include <cmath>
 
-#include <cutils/log.h>
+//#include <cutils/log.h>
 
 using namespace std;
 
@@ -42,7 +42,7 @@ int main(void)
     string filename = "assets/input.bmp";
 
 	printf("Simple Sobel filter OpenCL sample: \n");
-	ALOGE("ARM OpenCL SDK: Simple Sobel filter OpenCL sample: \n");
+	//ALOGE("ARM OpenCL SDK: Simple Sobel filter OpenCL sample: \n");
 
     cl_context context = 0;
     cl_command_queue commandQueue = 0;
@@ -68,7 +68,7 @@ int main(void)
     }
 
 	printf("createProgram... \n");
-	ALOGE("ARM OpenCL SDK: createProgram... \n");
+	//ALOGE("ARM OpenCL SDK: createProgram... \n");
 
     if (!createProgram(context, device, "assets/sobel.cl", &program))
     {
@@ -78,7 +78,7 @@ int main(void)
     }
 
 	printf("clCreateKernel... \n");
-	ALOGE("ARM OpenCL SDK: clCreateKernel... \n");
+	//ALOGE("ARM OpenCL SDK: clCreateKernel... \n");
 
     kernel = clCreateKernel(program, "sobel", &errorNumber);
     if (!checkSuccess(errorNumber))
@@ -94,7 +94,7 @@ int main(void)
     unsigned char* imageData = NULL;
 
 	printf("Load 24-bits per pixel RGB data from input.bmp... \n");
-	ALOGE("ARM OpenCL SDK: Load 24-bits per pixel RGB data from input.bmp... \n");
+	//ALOGE("ARM OpenCL SDK: Load 24-bits per pixel RGB data from input.bmp... \n");
     if (!loadFromBitmap(filename, &width, &height, &imageData))
     {
         cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
@@ -253,7 +253,7 @@ int main(void)
     luminanceToRGB(totalOutput, rgbOut, width, height);
 
 	printf("saveToBitmap output.bmp... \n");
-	ALOGE("ARM OpenCL SDK: saveToBitmap output.bmp... \n");
+	//ALOGE("ARM OpenCL SDK: saveToBitmap output.bmp... \n");
     saveToBitmap("output.bmp", width, height, rgbOut);
 
     delete [] absDX;

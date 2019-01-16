@@ -18,7 +18,7 @@
 #include <cstddef>
 #include <cmath>
 
-#include <cutils/log.h>
+//#include <cutils/log.h>
 
 
 using namespace std;
@@ -36,7 +36,7 @@ int main(void)
     string filename = "assets/input.bmp";
 
 	printf("Simple FIR filter OpenCL sample: \n");
-	ALOGE("ARM OpenCL SDK: Simple FIR filter OpenCL sample: \n");
+	//ALOGE("ARM OpenCL SDK: Simple FIR filter OpenCL sample: \n");
 
     cl_context context = 0;
     cl_command_queue commandQueue = 0;
@@ -82,7 +82,7 @@ int main(void)
     unsigned char* loadedRGBData = NULL;
 
 	printf("Load 24-bits per pixel RGB data from input.bmp... \n");
-	ALOGE("ARM OpenCL SDK: Load 24-bits per pixel RGB data from input.bmp... \n");
+	//ALOGE("ARM OpenCL SDK: Load 24-bits per pixel RGB data from input.bmp... \n");
     if (!loadFromBitmap(filename, &width, &height, &loadedRGBData))
     {
         cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
@@ -218,7 +218,7 @@ int main(void)
     delete [] outputData;
 
 	printf("saveToBitmap output.bmp... \n");
-	ALOGE("ARM OpenCL SDK: saveToBitmap output.bmp... \n");
+	//ALOGE("ARM OpenCL SDK: saveToBitmap output.bmp... \n");
     saveToBitmap("output.bmp", width, height, rgbOut);
     delete [] rgbOut;
 

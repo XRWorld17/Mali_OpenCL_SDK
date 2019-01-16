@@ -18,7 +18,7 @@
 #include <cstddef>
 #include <cmath>
 
-#include <cutils/log.h>
+//#include <cutils/log.h>
 
 using namespace std;
 
@@ -36,7 +36,7 @@ int main(void)
     string filename = "assets/input.bmp";
 
 	printf("Long data type (64-bit integer) OpenCL example.: \n");
-	ALOGE("ARM OpenCL SDK: Long data type (64-bit integer) OpenCL example.: \n");
+	//ALOGE("ARM OpenCL SDK: Long data type (64-bit integer) OpenCL example.: \n");
 
     cl_context context = 0;
     cl_command_queue commandQueue = 0;
@@ -95,7 +95,7 @@ int main(void)
     unsigned char* loadedRGBData = NULL;
 
 	printf("Load 24-bits per pixel RGB data from input.bmp... \n");
-	ALOGE("ARM OpenCL SDK: Load 24-bits per pixel RGB data from input.bmp... \n");
+	//ALOGE("ARM OpenCL SDK: Load 24-bits per pixel RGB data from input.bmp... \n");
     if (!loadFromBitmap(filename, &width, &height, &loadedRGBData))
     {
         cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
@@ -236,10 +236,10 @@ int main(void)
 
     /* [Output the results] */
     cout << "Square of the pixel values = " <<  *squareOfPixels << "\n";
-	ALOGE("ARM OpenCL SDK: Square of the pixel values =  %lu, \n",  *squareOfPixels);
+	//ALOGE("ARM OpenCL SDK: Square of the pixel values =  %lu, \n",  *squareOfPixels);
 	
     cout << "Sum of the pixel values = " <<  *sumOfPixels << endl;
-	ALOGE("ARM OpenCL SDK: Square of the pixel values =  %lu, \n",  *sumOfPixels);
+	//ALOGE("ARM OpenCL SDK: Square of the pixel values =  %lu, \n",  *sumOfPixels);
 	
     /* [Output the results] */
 

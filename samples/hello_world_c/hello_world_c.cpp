@@ -9,7 +9,7 @@
  */
 
 #include <iostream>
-#include<cutils/log.h>
+//#include<cutils/log.h>
 
 using namespace std;
 
@@ -46,7 +46,7 @@ int main(void)
     /* [C/C++ Implementation] */
 	//cout << "Result: " << "\n";
 	printf("Result: \n");
-	ALOGE("ARM OpenCL SDK: Result: \n");
+	//ALOGE("ARM OpenCL SDK: Result: \n");
 
     /* Uncomment the following block to print results. */
     
@@ -54,7 +54,7 @@ int main(void)
     {
         //cout << "i = " << i << ", output = " <<  output[i] << "\n";
 		printf("i =  %d, output = %d\n", i, output[i]);
-		ALOGE("ARM OpenCL SDK: i =  %d, output = %d\n", i, output[i]);
+		//ALOGE("ARM OpenCL SDK: i =  %d, output = %d\n", i, output[i]);
     }
     
 

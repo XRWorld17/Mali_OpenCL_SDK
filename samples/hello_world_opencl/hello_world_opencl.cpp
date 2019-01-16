@@ -14,7 +14,7 @@
 #include <CL/cl.h>
 #include <iostream>
 
-#include <cutils/log.h>
+//#include <cutils/log.h>
 
 using namespace std;
 
@@ -39,7 +39,7 @@ int main(void)
     {
         cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
         cerr << "Failed to create an OpenCL context. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Failed to create an OpenCL context. \n");
+		//ALOGE("ARM OpenCL SDK: Failed to create an OpenCL context. \n");
 		return 1;
     }
 
@@ -47,7 +47,7 @@ int main(void)
     {
         cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
         cerr << "Failed to create the OpenCL command queue. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Failed to create the OpenCL command queue. \n");
+		//ALOGE("ARM OpenCL SDK: Failed to create the OpenCL command queue. \n");
         return 1;
     }
 
@@ -55,7 +55,7 @@ int main(void)
     {
         cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
         cerr << "Failed to create OpenCL program." << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Failed to create OpenCL program. \n");
+		//ALOGE("ARM OpenCL SDK: Failed to create OpenCL program. \n");
         return 1;
     }
 
@@ -64,7 +64,7 @@ int main(void)
     {
         cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
         cerr << "Failed to create OpenCL kernel. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Failed to create OpenCL kernel. \n");
+		//ALOGE("ARM OpenCL SDK: Failed to create OpenCL kernel. \n");
         return 1;
     }
 
@@ -96,7 +96,7 @@ int main(void)
     {
         cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
         cerr << "Failed to create OpenCL buffer. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Failed to create OpenCL buffer. \n");
+		//ALOGE("ARM OpenCL SDK: Failed to create OpenCL buffer. \n");
         return 1;
     }
     /* [Setup memory] */
@@ -115,7 +115,7 @@ int main(void)
     {
        cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
        cerr << "Failed to map buffer. " << __FILE__ << ":"<< __LINE__ << endl;
-	   ALOGE("ARM OpenCL SDK: Failed to map buffer. \n");
+	   //ALOGE("ARM OpenCL SDK: Failed to map buffer. \n");
        return 1;
     }
     /* [Map the buffers to pointers] */
@@ -139,7 +139,7 @@ int main(void)
     {
        cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
        cerr << "Unmapping memory objects failed " << __FILE__ << ":"<< __LINE__ << endl;
-	   ALOGE("ARM OpenCL SDK: Unmapping memory objects0 failed. \n");
+	   //ALOGE("ARM OpenCL SDK: Unmapping memory objects0 failed. \n");
        return 1;
     }
 
@@ -147,7 +147,7 @@ int main(void)
     {
        cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
        cerr << "Unmapping memory objects failed " << __FILE__ << ":"<< __LINE__ << endl;
-	   ALOGE("ARM OpenCL SDK: Unmapping memory objects1 failed . \n");
+	   //ALOGE("ARM OpenCL SDK: Unmapping memory objects1 failed . \n");
        return 1;
     }
     /* [Un-map the buffers] */
@@ -162,7 +162,7 @@ int main(void)
     {
         cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
         cerr << "Failed setting OpenCL kernel arguments. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Failed setting OpenCL kernel arguments. \n");
+		//ALOGE("ARM OpenCL SDK: Failed setting OpenCL kernel arguments. \n");
         return 1;
     }
     /* [Set the kernel arguments] */
@@ -181,7 +181,7 @@ int main(void)
     {
         cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
         cerr << "Failed enqueuing the kernel. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Failed enqueuing the kernel.  \n");
+		//ALOGE("ARM OpenCL SDK: Failed enqueuing the kernel.  \n");
         return 1;
     }
     /* [Global work size] */
@@ -191,7 +191,7 @@ int main(void)
     {
         cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
         cerr << "Failed waiting for kernel execution to finish. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Failed waiting for kernel execution to finish. \n");
+		//ALOGE("ARM OpenCL SDK: Failed waiting for kernel execution to finish. \n");
         return 1;
     }
 
@@ -202,7 +202,7 @@ int main(void)
     {
        cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
        cerr << "Failed releasing the event object. " << __FILE__ << ":"<< __LINE__ << endl;
-	   ALOGE("ARM OpenCL SDK: Failed releasing the event object. \n");
+	   //ALOGE("ARM OpenCL SDK: Failed releasing the event object. \n");
        return 1;
     }
 
@@ -212,7 +212,7 @@ int main(void)
     {
        cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
        cerr << "Failed to map buffer. " << __FILE__ << ":"<< __LINE__ << endl;
-	   ALOGE("ARM OpenCL SDK: Failed to map buffer.. \n");
+	   //ALOGE("ARM OpenCL SDK: Failed to map buffer.. \n");
        return 1;
     }
 
@@ -220,13 +220,13 @@ int main(void)
     /* Uncomment the following block to print results. */
     
     printf("Result: \n");
-	ALOGE("ARM OpenCL SDK: Result: \n");
+	//ALOGE("ARM OpenCL SDK: Result: \n");
 	
     for (int i = 0; i < arraySize/10000; i++)
     {
         //cout << "i = " << i << ", output = " <<  output[i] << "\n";
 		printf("i =  %d, output = %d\n", i, output[i]);
-		ALOGE("ARM OpenCL SDK: i =  %d, output = %d\n", i, output[i]);
+		//ALOGE("ARM OpenCL SDK: i =  %d, output = %d\n", i, output[i]);
     }
     
     /* [Output the results] */
@@ -236,7 +236,7 @@ int main(void)
     {
        cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
        cerr << "Unmapping memory objects failed " << __FILE__ << ":"<< __LINE__ << endl;
-	   ALOGE("ARM OpenCL SDK: Unmapping memory objects failed. \n");
+	   //ALOGE("ARM OpenCL SDK: Unmapping memory objects failed. \n");
        return 1;
     }
 

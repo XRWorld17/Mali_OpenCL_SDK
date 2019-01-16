@@ -14,7 +14,7 @@
 #include <CL/cl.h>
 #include <iostream>
 
-#include<cutils/log.h>
+//#include<cutils/log.h>
 
 using namespace std;
 
@@ -40,7 +40,7 @@ int main(void)
     {
         cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
         cerr << "Failed to create an OpenCL context. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Failed to create an OpenCL context. \n");
+		//ALOGE("ARM OpenCL SDK: Failed to create an OpenCL context. \n");
 		return 1;
     }
 
@@ -216,13 +216,13 @@ int main(void)
 
     /* Uncomment the following block to print results. */
 	printf("Result: \n");
-	ALOGE("ARM OpenCL SDK: Result: \n");
+	//ALOGE("ARM OpenCL SDK: Result: \n");
     
     for (int i = 0; i < arraySize/100000; i++)
     {
         //cout << "i = " << i << ", output = " <<  output[i] << "\n";
         printf("i =  %d, output = %d\n", i, output[i]);
-		ALOGE("ARM OpenCL SDK: i =  %d, output = %d\n", i, output[i]);
+		//ALOGE("ARM OpenCL SDK: i =  %d, output = %d\n", i, output[i]);
     }
     
 

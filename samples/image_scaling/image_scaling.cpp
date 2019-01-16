@@ -13,7 +13,7 @@
 
 #include <CL/cl.h>
 #include <iostream>
-#include <cutils/log.h>
+//#include <cutils/log.h>
 
 using namespace std;
 
@@ -38,7 +38,7 @@ int main(void)
     {
         cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numMemoryObjects);
         cerr << "Failed to create an OpenCL context. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Failed to create an OpenCL context. \n");
+		//ALOGE("ARM OpenCL SDK: Failed to create an OpenCL context. \n");
         return 1;
     }
 
@@ -78,7 +78,7 @@ int main(void)
     unsigned char* inputImage = NULL;
     int width, height;
 	printf("loadFromBitmap:input.bmp... \n");
-	ALOGE("ARM OpenCL SDK: loadFromBitmap:input.bmp... \n");
+	//ALOGE("ARM OpenCL SDK: loadFromBitmap:input.bmp... \n");
     loadFromBitmap("assets/input.bmp", &width, &height, &inputImage);
 
     /*
@@ -225,13 +225,13 @@ int main(void)
     RGBAToRGB(outputImage, outputImageRGB, newWidth, newHeight);
 
 	printf("saveToBitmap : output.bmp... \n");
-	ALOGE("ARM OpenCL SDK: saveToBitmap : output.bmp... \n");
+	//ALOGE("ARM OpenCL SDK: saveToBitmap : output.bmp... \n");
 
     saveToBitmap("output.bmp", newWidth, newHeight, outputImageRGB);
 
 	printf("saveToBitmap done. \n");
 	cout << "cout: saveToBitmap done. " << endl;
-	ALOGE("ARM OpenCL SDK: saveToBitmap done. \n");
+	//ALOGE("ARM OpenCL SDK: saveToBitmap done. \n");
 
 	
     delete[] outputImageRGB;

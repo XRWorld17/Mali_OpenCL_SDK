@@ -19,7 +19,7 @@
 #include <cmath>
 #include <sys/time.h>
 
-#include <cutils/log.h>
+//#include <cutils/log.h>
 
 using namespace std;
 
@@ -48,7 +48,7 @@ int main(void)
     {
         cleanUpOpenCL(context, commandQueue, program, kernel, memoryObjects, numberOfMemoryObjects);
         cerr << "Failed to create an OpenCL context. " << __FILE__ << ":"<< __LINE__ << endl;
-		ALOGE("ARM OpenCL SDK: Failed to create an OpenCL context. \n");
+		//ALOGE("ARM OpenCL SDK: Failed to create an OpenCL context. \n");
         return 1;
     }
 
@@ -154,7 +154,7 @@ int main(void)
     luminanceToRGB(output, rgbOut, width, height);
 	
 	printf("saveToBitmap : output.bmp... \n");
-	ALOGE("ARM OpenCL SDK: saveToBitmap : output.bmp... \n");
+	//ALOGE("ARM OpenCL SDK: saveToBitmap : output.bmp... \n");
     saveToBitmap("output.bmp", width, height, rgbOut);
 
     /* Unmap the output. */
