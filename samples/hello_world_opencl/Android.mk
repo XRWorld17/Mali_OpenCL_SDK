@@ -13,15 +13,10 @@ LOCAL_SRC_FILES := 	\
 	
 
 LOCAL_SHARED_LIBRARIES := \
-	libOpenCL \
-	libcutils \
-	libutils \
-	liblog  \
-#	libstlport
+	libOpenCL
 
 LOCAL_STATIC_LIBRARIES := \
-	libCommon \
-	libstlport_static
+	libCommon
 	
 
 LOCAL_CFLAGS += -c

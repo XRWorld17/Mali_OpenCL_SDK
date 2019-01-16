@@ -11,15 +11,11 @@ LOCAL_SRC_FILES := 	\
 	common.cpp 	\
 	image.cpp
 
-LOCAL_SHARED_LIBRARIES := \
-	libcutils \
-	libutils \
-	libstdc++ \
-	liblog \
-#	libstlport
+LOCAL_SHARED_LIBRARIES :=
+	
 
-LOCAL_STATIC_LIBRARIES := \
-	libstlport_static
+LOCAL_STATIC_LIBRARIES :=
+	
 
 LOCAL_CFLAGS += -c
 LOCAL_CFLAGS += -Wall
